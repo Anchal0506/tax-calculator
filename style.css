@@ -1,0 +1,44 @@
+.error-icon {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding-left: 5px;
+  color: red;
+}
+
+.form-box {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  padding: 20px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.tooltip-text {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 999;
+  font-size: 0.8rem;
+}
+
+.form-group > div {
+  display: flex;
+}
+
+.question-mark{
+    background-color: beige;
+    color: black;
+    border-radius: 2rem;
+    padding:2px
+}
+
+.error-box{
+    display: none;
+    justify-content: center;
+    padding-bottom: 1rem;
+    color: red;
+}
