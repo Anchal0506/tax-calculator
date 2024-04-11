@@ -29,24 +29,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  var errorIcon = document.querySelectorAll(".error-icon");
+  errorIcon.forEach(function (error){
+    error.addEventListener("mouseover",function() {
+      var tooltipText = error.getAttribute("data-tooltip");
+      showTooltip(error, tooltipText);
+    })
+    error.addEventListener("mouseout",function(){
+      removeTooltip();
+    })
+  })
+
   // Function to show error icon
-  function showErrorIcon(elementId, errorMessage) {
+  function showErrorIcon(elementId,message) {
     var errorIcon = document.getElementById(elementId);
-    var errorbox = document.getElementById("error-box");
+    message?errorIcon.setAttribute('data-tooltip', message):"";
     errorIcon.style.display = "flex";
-    errorIcon.title = errorMessage;
-    errorbox.style.display = "flex";
-    errorbox.innerText = errorMessage;
   }
 
   // Function to hide error icon
   function hideErrorIcon(elementId) {
     var errorIcon = document.getElementById(elementId);
-    var errorbox = document.getElementById("error-box");
     errorIcon.style.display = "none";
-    errorIcon.removeAttribute("title");
-    errorbox.style.display = "none";
-    errorbox.innerText = "";
   }
 
   // Function to validate form inputs
@@ -57,11 +61,15 @@ document.addEventListener("DOMContentLoaded", function () {
       var value = document.getElementById(input).value;
       console.log(input,isNaN(value))
       if (value.trim() == "" || isNaN(value)) {
-        showErrorIcon(input + "Error", "This field is mandatory and must be a number");
+        showErrorIcon(input + "Error",`${input} should be number`);
         isValid = false;
         return false
-      } else {
-        hideErrorIcon(input + "Error");
+      } else if(parseInt(value) < 0){
+        showErrorIcon(input + "Error",`${input} should not be negative.`);
+        isValid = false;
+        return false;
+      }else {
+        hideErrorIcon(input + "Error",input);
       }
     });
     return isValid;

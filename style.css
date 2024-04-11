@@ -33,12 +33,16 @@
     background-color: beige;
     color: black;
     border-radius: 2rem;
-    padding:2px
+    padding:2px;
+    cursor: pointer;
 }
+
 
 .error-box{
     display: none;
     justify-content: center;
     padding-bottom: 1rem;
     color: red;
+    cursor: pointer;
+
 }

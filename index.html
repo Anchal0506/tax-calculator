@@ -8,15 +8,12 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link href="./style.css" rel="stylesheet"/>
+    <link href="./style.css" rel="stylesheet" />
   </head>
   <body>
     <div class="container mt-5">
       <div class="form-box">
         <h2 class="text-center">Tax Calculator</h2>
-        <div class="error-box" id="error-box">
-            Error
-        </div>
         <form id="taxForm">
           <div class="form-group">
             <label for="grossIncome"
@@ -35,7 +32,12 @@
                 name="grossIncome"
                 placeholder="Enter gross annual income"
               />
-              <span class="error-icon" id="grossIncomeError">!</span>
+              <span
+                class="error-icon"
+                data-tooltip="Gross annual income should be number"
+                id="grossIncomeError"
+                >!</span
+              >
             </div>
           </div>
           <div class="form-group">
@@ -55,7 +57,12 @@
                 name="extraIncome"
                 placeholder="Enter extra income from other sources"
               />
-              <span class="error-icon" id="extraIncomeError">!</span>
+              <span
+                class="error-icon"
+                data-tooltip="Extra income should be number"
+                id="extraIncomeError"
+                >!</span
+              >
             </div>
           </div>
           <div class="form-group">
@@ -93,7 +100,12 @@
                 placeholder="Add total applicable deductions"
               />
 
-              <span class="error-icon" id="deductionsError">!</span>
+              <span
+                class="error-icon"
+                data-tooltip="Total Applicable Deductions should be number"
+                id="deductionsError"
+                >!</span
+              >
             </div>
           </div>
           <button
@@ -153,6 +165,5 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="./scirpt.js"></script>
     <!-- Font Awesome for icons -->
-    
   </body>
 </html>
