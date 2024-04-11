@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var age = parseInt(document.getElementById("age").value);
     console.log(age);
     var taxableIncome =
-      parseInt(grossIncome) + parseInt(extraIncome) - parseInt(deductions);
+      (grossIncome) + (extraIncome) - (deductions);
     if (taxableIncome < 0) {
       var errorbox = document.getElementById("error-box");
       errorbox.style.display = "flex";
@@ -91,7 +91,6 @@ document.addEventListener("DOMContentLoaded", function () {
       return -1;
     }
     var tax = 0;
-    console.log(grossIncome, extraIncome, deductions, taxableIncome);
     if (taxableIncome > 800000) {
       if (age < 40) {
         tax = 0.3 * (taxableIncome - 800000);
@@ -102,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    return tax; // Format tax to two decimal places
+    return tax; 
   }
 
   // Event listener for calculate button click
